@@ -2,7 +2,6 @@
  * Copyright (c) 2014-2022 Bjoern Kimminich & the OWASP Juice Shop contributors.
  * SPDX-License-Identifier: MIT
  */
-var escapeHtml = require('escape-html')
 
 import { MatTableDataSource } from '@angular/material/table'
 import { DomSanitizer } from '@angular/platform-browser'
@@ -180,7 +179,7 @@ export class ScoreBoardComponent implements OnInit {
   }
 
   trustDescriptionHtml (challenge: Challenge) {
-    challenge.description = this.sanitizer.bypassSecurityTrustHtml(escapeHtml(challenge.description as string))
+    challenge.description = this.sanitizer.bypassSecurityTrustHtml(challenge.description as string)
   }
 
   calculateCodingProgressPercentage () {
